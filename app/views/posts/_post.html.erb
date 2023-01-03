@@ -1,13 +1,17 @@
 <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
   <div class="flex-shrink-0">
-    <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
+    <% if post.cover_image.attached? %>
+      <%= image_tag post.cover_image, class: "h-48 w-full object-cover" %>
+    <% else %>
+      <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
+    <% end %>
   </div>
   <div class="flex flex-1 flex-col justify-between bg-white p-6">
     <div class="flex-1">
       <p class="text-sm font-medium text-indigo-600">
         <a href="#" class="hover:underline">Article</a>
       </p>
-        <%= link_to post do %>
+      <%= link_to post do %>
         <p class="text-xl font-semibold text-gray-900">
           <%= post.title %>
         </p>
