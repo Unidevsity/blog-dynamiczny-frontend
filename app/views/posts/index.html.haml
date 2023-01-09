@@ -1,0 +1,20 @@
+.w-full.flex.flex-col
+  - if notice.present?
+    %p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.inline-block= notice
+  .flex.justify-between.items-center
+    = link_to 'New post', new_post_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium"
+  .w-full.relative.bg-gray-50.px-4.pt-16.pb-20.sm:px-6.lg:px-8.lg:pt-24.lg:pb-28
+    .absolute.inset-0
+      .bg-white{:class => "h-1/3 sm:h-2/3"}
+    .relative.mx-auto.max-w-7xl
+      .text-center
+        %h2.text-3xl.font-bold.tracking-tight.text-gray-900.sm:text-4xl From the blog
+        %p.mx-auto.mt-3.max-w-2xl.text-xl.text-gray-500.sm:mt-4
+          Lorem ipsum dolor sit amet
+          consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
+      = render 'search_form'
+      #posts.mx-auto.mt-12.grid.max-w-lg.gap-5.lg:max-w-none.lg:grid-cols-3
+        = render @posts
+      - if @pagy
+        = turbo_frame_tag :posts_pagination, src: posts_path(format: :turbo_stream, page: @pagy.next), loading: :lazy do
+          Loading posts....

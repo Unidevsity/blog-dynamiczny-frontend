@@ -1,9 +1,0 @@
-<%= turbo_stream.append "posts" do %>
-  <%= render @posts %>
-<% end %>
-
-<%= turbo_stream.replace :posts_pagination do %>
-  <%= turbo_frame_tag :posts_pagination, src: posts_path(format: :turbo_stream, page: @pagy.next), loading: :lazy do %>
-    Loading posts....
-  <% end %>
-<% end %>
