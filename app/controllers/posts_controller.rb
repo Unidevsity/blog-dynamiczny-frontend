@@ -3,7 +3,12 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @pagy, @posts = pagy(Post.all.order(created_at: :asc), items: 3)
+    @q = Post.ransack(params[:q])
+    if params.dig(:q, "title_cont").present?
+      @posts = @q.result(distinct: true)
+    else
+      @pagy, @posts = pagy(Post.all.order(created_at: :asc), items: 3)
+    end
   end
 
   # GET /posts/1 or /posts/1.json
