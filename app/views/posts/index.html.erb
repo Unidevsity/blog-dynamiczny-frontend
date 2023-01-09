@@ -22,7 +22,9 @@
       <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3" id="posts">
         <%= render @posts %>
       </div>
-      <%== pagy_nav(@pagy) %>
+      <%= turbo_frame_tag :posts_pagination, src: posts_path(format: :turbo_stream, page: @pagy.next), loading: :lazy do %>
+        Loading posts....
+      <% end %>
     </div>
   </div>
 </div>
