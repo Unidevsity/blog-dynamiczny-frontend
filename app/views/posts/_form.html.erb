@@ -11,8 +11,9 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.file_field :cover_image %>
+  <div class="my-5" data-controller="upload-preview">
+    <%= form.file_field :cover_image, data: { target: 'upload-preview.input', action: 'upload-preview#setImagePreview' } %>
+    <%= image_tag @post.cover_image.attached? ? @post.cover_image : '', data: { target: 'upload-preview.preview' } %>
   </div>
 
   <div class="my-5">
@@ -22,7 +23,7 @@
 
   <div class="my-5">
     <%= form.label :excerpt %>
-    <%= form.text_area :excerpt, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"  %>
+    <%= form.text_area :excerpt, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", data: { controller: "textarea-autogrow" }  %>
   </div>
 
   <div class="my-5">
