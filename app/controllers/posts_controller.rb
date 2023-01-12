@@ -13,6 +13,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    flash[:notice] = "You are viewing a post"
+    flash[:alert] = "You shouldn't be viewing this post"
   end
 
   # GET /posts/new
