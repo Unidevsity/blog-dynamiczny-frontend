@@ -1,0 +1,11 @@
+<% if model.errors.any? %>
+  <% model.errors.each do |error| %>
+    <span
+      data-controller="flash"
+      data-type="alert"
+      data-message="<%= error.full_message %>"
+    >
+
+    </span>
+  <% end %>
+<% end %>

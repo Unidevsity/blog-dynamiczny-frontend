@@ -1,0 +1,7 @@
+<% flash.each do |key, value| %>
+  <span
+    data-controller="flash"
+    data-type="<%= key %>"
+    data-message="<%= value %>"
+  ></span>
+<% end %>
