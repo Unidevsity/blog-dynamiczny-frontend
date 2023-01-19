@@ -3,7 +3,6 @@
 
   <div class="my-5" data-controller="upload-preview">
     <%= form.file_field :cover_image, data: { target: 'upload-preview.input', action: 'upload-preview#setImagePreview' } %>
-    <%= image_tag @post.cover_image.attached? ? @post.cover_image : '', data: { target: 'upload-preview.preview' } %>
   </div>
 
   <div class="my-5">
