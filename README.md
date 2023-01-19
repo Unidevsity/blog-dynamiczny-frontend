@@ -1,24 +1,25 @@
-# README
+# Instrukcja uruchomienia projektu
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 1. Sklonu repozytorium
 
-Things you may want to cover:
+`git@github.com:Unidevsity/blog-dynamiczny-frontend.git`
 
-* Ruby version
+## 2. Zainstaluj zależności
 
-* System dependencies
+`bundle install`
 
-* Configuration
+## 3. Utwórz bazę danych
 
-* Database creation
+`rails db:create`
 
-* Database initialization
+## 4. Uruchom migracje
 
-* How to run the test suite
+`rails db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+## 5. (Opcjonalnie) Załaduj testowe dane
 
-* Deployment instructions
+`rails db:seed`
 
-* ...
+## 6. Uruchom aplikację
+
+`bin/dev`
