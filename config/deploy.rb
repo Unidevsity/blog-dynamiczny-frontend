@@ -7,7 +7,7 @@ set :user, 'deploy'
 set :application, 'blog'
 
 set :rvm_ruby_version, "ruby-3.1.0"
-set :default_env, { rvm_bin_path: "/home/deploy/.rvm/bin" }
+set :default_env, { rvm_bin_path: '~/.rvm/bin' }
 
 set :puma_threads, [4, 16]
 set :puma_workers, 0
