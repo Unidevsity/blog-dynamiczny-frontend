@@ -74,6 +74,8 @@ group :development do
   gem 'capistrano-secrets-yml'
   gem 'capistrano-rake'
   gem 'capistrano-rails-console', require: false
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
