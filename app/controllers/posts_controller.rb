@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     if params.dig(:q, "title_cont").present?
       @posts = @q.result(distinct: true)
     else
-      @pagy, @posts = pagy(Post.all.order(created_at: :asc), items: 3)
+      @pagy, @posts = pagy(Post.all.order(created_at: :asc).distinct, items: 3)
     end
   end
 
