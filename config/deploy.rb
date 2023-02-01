@@ -13,7 +13,7 @@ set :puma_threads, [4, 16]
 set :puma_workers, 0
 
 set :pty, true
-set :use_sudo, false
+set :use_sudo, true
 set :stage, :production
 set :deploy_via, :remote_cache
 set :deploy_to, "/var/www/#{fetch(:application)}"
@@ -28,7 +28,8 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 
 set :linked_files, fetch(:linked_files, []).push(
-  'master.key',
+  'config/master.key',
+  'config/database.yml'
   )
 set :linked_dirs, fetch(:linked_dirs, []).push('log',
                                                'tmp/pids',
@@ -90,6 +91,7 @@ namespace :deploy do
       before 'deploy:restart', 'puma:start'
       invoke "puma:make_dirs"
       invoke 'deploy'
+      
     end
   end
 
