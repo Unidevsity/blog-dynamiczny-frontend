@@ -11,7 +11,7 @@ set :puma_threads, [4, 16]
 set :puma_workers, 0
 
 set :pty, true
-set :use_sudo, false
+set :use_sudo, true
 set :stage, :production
 set :deploy_via, :remote_cache
 set :deploy_to, "/var/www/#{fetch(:application)}"
@@ -37,7 +37,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push(
   'tmp/sockets'
 )
 
-set :ssh_option, { keys: %w('/Users/rafal/.ssh/rorp') }
+set :ssh_options, { keys: %w(/Users/rafal/.ssh/rorp) }
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
